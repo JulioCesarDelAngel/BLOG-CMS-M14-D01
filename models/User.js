@@ -19,7 +19,7 @@ User.init(
             type : DataTypes.STRING,
             allowNull : false,
             validate : {
-                len : [8]
+                len : [4]
             }
         }
     },
@@ -28,8 +28,7 @@ User.init(
         timestamps : false,     //No agrega atributos updt y created at
         freezeTableName : true, //no cambia  o pluraliza el nombre de la tabla
         underscored : false,    //no agrega guion bajo snake_case/camelCase
-        modelName : 'user',     //nombre del modelo con
-        freezeTableName : true
+        modelName : 'user'      //nombre del modelo con
     }
 );
 
