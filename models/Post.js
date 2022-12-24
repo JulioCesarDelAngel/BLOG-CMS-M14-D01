@@ -20,7 +20,7 @@ Post.init(
             allowNull : false
         },
         createdat : {
-            type : DataTypes.DATETIME,
+            type : DataTypes.DATE,
             allowNull : false,
             defaultValue : sequelize.literal ("CURRENT_TIMESTAMP")            
         },
