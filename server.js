@@ -2,6 +2,8 @@ require('dotenv').config();
 const path = require('path');
 const express = require('express');
 
+const sequelize = require('./config/connection');
+
 const app = express();
 const PORT = process.env.PORT || 3001; //Necesario para el despliegue en Heroku 
 
@@ -15,10 +17,12 @@ app.use(express.urlencoded({ extended : true}));
 
 //ruta de pruebas
 app.get('/', (request, response) => {
-    response.send('On Line DevEd');
+    response.send('On Line Dev and db');
 });
 
 //Archivos estaticos
 app.use(express.static(path.join(__dirname,'public')));
 
-app.listen(PORT, () => console.log( ` Now listening on port ${PORT} `));
+sequelize.sync( {force : false} ).then( ()=> {
+    app.listen(PORT, () => console.log( ` Now listening on port ${PORT} `));
+});
