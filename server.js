@@ -2,9 +2,12 @@ require('dotenv').config();
 const path = require('path');
 const express = require('express');
 const sequelize = require('./config/connection');
+
+const exphbs = require('express-handlebars');
+const hbs = exphbs.create({});
+
 //test relaciones 
 //const { User, Post, Comment} = require ('./models');
-const { userInfo } = require('os');
 
 const app = express();
 const PORT = process.env.PORT || 3001; //Necesario para el despliegue en Heroku 
@@ -12,6 +15,9 @@ const PORT = process.env.PORT || 3001; //Necesario para el despliegue en Heroku
 //Settings : por defecto la carpeta views debe estar al inicio del proyecto, se puede Re configurar 
 app.set('views', path.join(__dirname, 'views'));
 console.log('Ruta de las vistas:' , app.get('views') );
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
+
 
 //Middlewares
 app.use(express.json());
@@ -19,7 +25,8 @@ app.use(express.urlencoded({ extended : true}));
 
 //ruta de pruebas
 app.get('/', (request, response) => {
-    response.send('On Line Dev and db');
+    //response.send('On Line Dev and db');
+    response.render('index');
 });
 
 //Archivos estaticos
