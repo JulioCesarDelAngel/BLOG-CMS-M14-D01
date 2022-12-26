@@ -24,10 +24,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended : true}));
 
 //ruta de pruebas
-app.get('/', (request, response) => {
+/* app.get('/', (request, response) => {
     //response.send('On Line Dev and db');
     response.render('index');
-});
+}); */
+//rutas de Controllers
+app.use(require('./controllers'));
 
 //Archivos estaticos
 app.use(express.static(path.join(__dirname,'public')));
