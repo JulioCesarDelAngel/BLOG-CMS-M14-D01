@@ -4,7 +4,8 @@ const express = require('express');
 const sequelize = require('./config/connection');
 
 const exphbs = require('express-handlebars');
-const hbs = exphbs.create({});
+const helpers = require('./utils/helpers');
+const hbs = exphbs.create({helpers});
 
 //test relaciones 
 //const { User, Post, Comment} = require ('./models');
@@ -13,6 +14,7 @@ const app = express();
 const PORT = process.env.PORT || 3001; //Necesario para el despliegue en Heroku 
 
 //Settings : por defecto la carpeta views debe estar al inicio del proyecto, se puede Re configurar 
+
 app.set('views', path.join(__dirname, 'views'));
 console.log('Ruta de las vistas:' , app.get('views') );
 app.engine('handlebars', hbs.engine);

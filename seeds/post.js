@@ -10,7 +10,12 @@ const postRows = [
         title : 'Uso timeStamp y sequelize.literal en la implementacion createdAt',
         content : 'Habilitar el default value en tu modelo, defaultValue : sequelize.literal ("CURRENT_TIMESTAMP")',
         user_id : 2
-    }
+    },
+    {
+        title : 'Por qué debería tener cuidado con las opciones de Sequelize Raw',
+        content : 'La mayoría de las veces, el uso de rawpropiedades no le traerá gran parte del problema. Sin embargo, afectará al campo de tipo de datos booleano .',
+        user_id : 2
+    }    
 
 ];
 

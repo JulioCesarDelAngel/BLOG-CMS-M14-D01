@@ -1,1 +1,22 @@
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere provident eius ipsam perferendis, dolorum quia   dolore omnis quidem corporis aspernatur laudantium, temporibus at reiciendis iure repellat dolorem eaque assumenda a.     </p>
+
+<div class="row">
+    {{#each postRows}}
+
+        <div class="card">
+        <div class="card-header">
+        {{id}}  {{title}}
+        </div>
+        <div class="card-body">
+            <blockquote class="blockquote mb-0">
+            <p>{{content}}</p>
+            <footer class="blockquote-footer">Posted by {{user.username}}<cite> on {{createdat}}</cite></footer>
+            </blockquote>
+        </div>
+        </div>
+        <section>
+        {{#each (filter_commentPost ../commentRows id)}}
+            {{>comment}}        
+        {{/each}}
+        </section>
+    {{/each}} 
+ </div>
