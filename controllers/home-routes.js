@@ -31,4 +31,6 @@ router.get('/', async (request, response) => {
     response.render('index', {postRows, commentRows});
 })
 
+
+
 module.exports = router;
