@@ -28,7 +28,13 @@ router.get('/', async (request, response) => {
     const commentRows = commentData.map(rows => rows.get({ plain: true }));
     console.log('Map Comment: ', commentRows);   
 
-    response.render('index', {postRows, commentRows});
+/*     console.log('session loggedIn: ', request.session.loggedIn);
+    console.log('session user name : ', request.session.username);
+    console.log('session user id: ', request.session.userid); */
+
+    const loggedIn = request.session.loggedIn === undefined ? false : true;
+
+    response.render('index', {postRows, commentRows, loggedIn: loggedIn});
 })
 
 

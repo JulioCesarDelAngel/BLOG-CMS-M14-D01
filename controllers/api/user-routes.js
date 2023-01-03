@@ -30,11 +30,13 @@ router.post('/login', async (request, response) => {
             return;
           }
         else{
-            response
-              .status(200)
-              .json({ message: 'Welcome!' });
-            return;
-        
+            request.session.save(() => {
+                request.session.loggedIn = true;
+                request.session.username = userDb.username;
+                request.session.userid = userDb.id;
+                console.log('almacenado variables de session', request.session.cookie);
+                response.redirect('/');
+            });
         }
     }    
     catch ( error ) {
@@ -45,13 +47,24 @@ router.post('/login', async (request, response) => {
 
 
 router.get('/singup', async (request, response) => {
-    /*     if (request.session.loggedIn != null) {
-            response.redirect('/');
-        } */        
         response.render('login', {typeLogin:false});
-        //response.render('partials/navigation');
-    
-        //response.send('get Login ok')
     })
+
+
+router.get('/logout', async (request, response) => {
+    //response.render('login', {typeLogin:false});
+    if (request.session.loggedIn) {
+        request.session.destroy(() => {
+          //request.status(204).end();
+          response.redirect('/');
+        });
+      } else {
+        response.redirect('/');
+        //res.status(404).end();
+      }
+
+})
+
+
 
 module.exports = router;
