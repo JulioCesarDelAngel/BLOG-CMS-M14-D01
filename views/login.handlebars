@@ -9,7 +9,13 @@
         {{/if}}
     </div>
       <div class="card-body">
-        <form action="/api/user/login" method="POST">
+        <form 
+            {{#if typeLogin}}
+                action="/api/user/login" 
+            {{else}}
+                action="/api/user/singup" 
+            {{/if}}              
+        method="POST">
             <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">User Name</label>
             <input class="form-control" name = "inputUser" placeholder="Capture su nombre de usuario">
