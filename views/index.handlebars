@@ -4,7 +4,12 @@
 
         <div class="card">
         <div class="card-header">
-        {{id}}  {{title}}
+            <a href="/newcomment/{{id}}">{{title}}</a>  
+            {{!-- {{#if loggedIn}}
+                <a href="/newcomment/{{id}}">{{title}}</a>  
+            {{else}}
+                {{id}}  {{title}}
+            {{/if}}   --}}
         </div>
         <div class="card-body">
             <blockquote class="blockquote mb-0">
@@ -14,8 +19,8 @@
         </div>
         </div>
         <section>
-        {{#each (filter_commentPost ../commentRows id)}}
-            {{>comment}}        
+        {{#each (filter_commentPost ../commentRows id )}}
+            {{>comment parameter = ../../userId }}        
         {{/each}}
         </section>
     {{/each}} 
