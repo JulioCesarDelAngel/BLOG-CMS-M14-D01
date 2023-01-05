@@ -4,7 +4,13 @@
         <section>
         <div class="card">
         <div class="card-header">
-            <a href="/newcomment/{{id}}">{{title}}</a>  
+            <a href="/newcomment/{{id}}">{{title}}</a> 
+{{!--             {{#if loggedIn}}
+                <a href="/newcomment/{{id}}">{{title}}</a>  
+            {{else}}
+                {{title}}
+            {{/if}}
+ --}}
         </div>
         <div class="card-body">
             <blockquote class="blockquote mb-0">
