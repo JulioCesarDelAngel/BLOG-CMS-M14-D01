@@ -1,8 +1,11 @@
 <!--Boton nuevo post-->
-<a href="/dashboard/post" class="btn btn-primary .btn-block" role="button">Nuevo Post</a>  
+<div class="col-auto text-center mb-4">
+<a href="/dashboard/post" class="btn-lg btn-primary .btn-block col-12" role="button"> + New Post</a>  
+</div>
 
 
 <!--Lista de mis post-->
 {{#each postRows}}
     {{> listpost}}
 {{/each}}
+
