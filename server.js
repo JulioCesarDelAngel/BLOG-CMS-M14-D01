@@ -68,21 +68,4 @@ sequelize.sync( {force : false} ).then( ()=> {
     console.log('Usuarios y sus posts:')
     const userData = await User.findByPk(1, { include : [ { model : Post} ] });
     console.log('Usuarios y sus posts:' , userData );
-
-    console.log('Usuarios y sus comments:')
-    const userCommentData = await User.findByPk(1, { include : [ { model : Comment} ] });
-    console.log('Usuarios y sus comments:' , userCommentData  );
-
-    console.log('Post ,su owner y sus comentarios:')
-    const PostUserData = await Post.findAll( { include : [ { model : User,
-                                                include : [ { model : Comment} ]}
-                                             ]});
-    console.log('Post ,su owner y sus comentarios:' , PostUserData   );
-
-    console.log('Post ,su owner y sus comentarios y su owner:')
-    const PostUserDataComment = await Post.findAll( { include : [ { model : User,
-                                                include : [ { model : Comment, include : [{ model : User}] } ]}
-                                             ]});
-    console.log('Post ,su owner y sus comentarios y su owner:' , PostUserDataComment    );
-
 } */
