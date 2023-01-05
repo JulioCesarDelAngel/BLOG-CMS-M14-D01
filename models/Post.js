@@ -1,5 +1,6 @@
 const { Model, DataTypes} = require ('sequelize');
 const sequelize = require('../config/connection');
+const comment = require('./Comment');
 
 class Post extends Model{};
 
@@ -34,12 +35,19 @@ Post.init(
         }
     },
     {
+        hooks:{
+            beforeDestroy : async (post) =>{
+              console.log('Eliminar dependencias de comments', post.id);
+              await comment.destroy({where : {post_id : post.id}});
+            }
+      
+          },        
         sequelize,              
         timestamps : false,     
         freezeTableName : true, 
         underscored : false,    
         modelName : 'post'
     }    
-)
+);
 
 module.exports = Post;

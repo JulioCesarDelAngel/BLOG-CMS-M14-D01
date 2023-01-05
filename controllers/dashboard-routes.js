@@ -78,11 +78,14 @@ router.get('/post/:id', appAuth, async (request, response) => {
 })
 
 router.delete('/post/:id', appAuth, async (request, response) => { 
+    console.log(`delete post row id :`, request.params.id)
+
     try {
         const rowPost = await Post.destroy({
             where : {
                 id : request.params.id
-            }
+            },
+            individualHooks:true //se implementa eliminar en cascada.
         });
 
         console.log(`delete row :`, !rowPost)
@@ -96,6 +99,7 @@ router.delete('/post/:id', appAuth, async (request, response) => {
 
     }
     catch ( error ){
+        console.log(`delete row error:`, error);
         response.status(500).json(error);
     }
     return;

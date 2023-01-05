@@ -41,7 +41,7 @@ router.get('/', async (request, response) => {
 
 
 //render formulario de alta
-router.get('/newcomment/:id', async (request, response) => {        
+router.get('/newcomment/:id', appAuth, async (request, response) => {        
     const loggedIn = !!request.session.loggedIn ;
     response.render('comments', {loggedIn: loggedIn, newComment:true, postId:request.params.id});
     return;
