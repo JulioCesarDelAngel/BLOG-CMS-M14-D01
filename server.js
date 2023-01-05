@@ -20,7 +20,7 @@ const sess = {
     secret: 'Super secret secret',
      cookie: {
       // Stored in milliseconds (86400 === 1 day)
-      maxAge: 60000,
+      maxAge: 86400,
       secure: false,
     },  
     resave: false,
