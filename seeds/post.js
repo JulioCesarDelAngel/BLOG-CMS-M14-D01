@@ -2,7 +2,7 @@ const { Post } = require( '../models');
 
 const postRows = [
     {
-        title : 'Hash en contraseñas al usar bulkcreate',
+        title : 'Como crear Hash en contraseñas al usar bulkcreate',
         content : 'Crear el hook en tu modelo, y hablilitar la opción { individualHooks : true}.',
         user_id : 1
     },
@@ -13,7 +13,7 @@ const postRows = [
     },
     {
         title : 'Por qué debería tener cuidado con las opciones de Sequelize Raw',
-        content : 'La mayoría de las veces, el uso de rawpropiedades no le traerá gran parte del problema. Sin embargo, afectará al campo de tipo de datos booleano .',
+        content : 'La mayoría de las veces, el uso de raw no le traerá gran parte del problema. Sin embargo, afectará al campo de tipo de datos booleano .',
         user_id : 2
     }    
 
