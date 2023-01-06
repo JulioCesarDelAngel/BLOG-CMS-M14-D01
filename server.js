@@ -35,7 +35,7 @@ const hbs = exphbs.create({helpers});
 
 //Settings : por defecto la carpeta views debe estar al inicio del proyecto, se puede Re configurar 
 app.set('views', path.join(__dirname, 'views'));
-console.log('Ruta de las vistas:' , app.get('views') );
+//console.log('Ruta de las vistas:' , app.get('views') );
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
